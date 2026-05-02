@@ -1,1 +1,1 @@
-Project CONATAINS
+Project CONTAINS
