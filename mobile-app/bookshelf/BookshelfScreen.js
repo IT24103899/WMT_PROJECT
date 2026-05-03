@@ -32,7 +32,7 @@ export default function BookshelfScreen({ navigation }) {
     setRefreshing(false);
   }, []);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => { fetchData(); }, [fetchData]); // added fetch data 
 
   const books = bookshelf[activeTab] || [];
   const activeColor = SHELVES.find(s => s.id === activeTab)?.color || '#333';
