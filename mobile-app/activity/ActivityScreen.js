@@ -22,7 +22,7 @@ export default function ActivityScreen() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [filter, setFilter] = useState('');
-
+// Fetch data
   const fetchData = useCallback(async () => {
     try {
       const [actRes, statsRes] = await Promise.all([getActivity(), getReadingStats()]);
