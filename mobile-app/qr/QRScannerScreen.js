@@ -35,7 +35,7 @@ export default function QRScannerScreen({ navigation }) {
       ]
     );
   };
-
+  // handling permissions
   if (!permission) {
     return (
       <View style={styles.container}>
@@ -70,7 +70,7 @@ export default function QRScannerScreen({ navigation }) {
         enableTorch={torch}
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
       >
-        {/* Overlay Frame */}
+        {/* Overlay Scanner Frame */}
         <View style={styles.overlay}>
           <View style={styles.unfocusedContainer} />
           <View style={styles.middleContainer}>
@@ -86,7 +86,7 @@ export default function QRScannerScreen({ navigation }) {
           <View style={styles.unfocusedContainer} />
         </View>
 
-        {/* Instructions */}
+        {/* Instructions to guide user */}
         <View style={styles.instructionContainer}>
           <Text style={styles.instructionText}>Position QR code within the frame</Text>
         </View>
