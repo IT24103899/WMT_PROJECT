@@ -15,7 +15,7 @@ exports.submitFeedback = async (req, res) => {
       status: 'pending'
     });
 
-    res.status(201).json({
+    res.status(201).json({  
       success: true,
       message: 'Feedback submitted successfully',
       data: feedback
