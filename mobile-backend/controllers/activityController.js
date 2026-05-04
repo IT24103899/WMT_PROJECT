@@ -19,7 +19,7 @@ const updateActivity = async (req, res) => {
     const bookId = resolveBookId(rawBookId);
     
     if (!bookId || finalPage === undefined) {
-      return res.status(400).json({ message: 'Book ID and page context required' });
+      return res.status(400).json({ message: 'Book ID and page number are required.' });
     }
 
     // Consolidate: find any activity for this user and book
