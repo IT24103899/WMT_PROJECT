@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { submitFeedback } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get('window') ; 
 
 const TYPES = [
   { value: 'bug', label: 'Bug Report', icon: 'bug', color: '#ef4444', desc: 'Something is broken' },
