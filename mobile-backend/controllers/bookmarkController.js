@@ -58,3 +58,18 @@ exports.deleteBookmark = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+
+// @desc    Get total bookmark count for a book
+// @route   GET /api/bookmarks/:bookId/count
+exports.getBookmarkCount = async (req, res) => {
+  try {
+    const count = await Bookmark.countDocuments({
+      user: req.user._id,
+      bookId: req.params.bookId
+    });
+
+    res.json({ bookId: req.params.bookId, totalBookmarks: count });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};

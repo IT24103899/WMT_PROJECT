@@ -7,7 +7,7 @@ const activitySchema = new mongoose.Schema({
     ref: 'User'
   },
   bookId: {
-    type: mongoose.Schema.Types.Mixed, // supports both numeric legacyId and ObjectId strings
+    type: mongoose.Schema.Types.Mixed,
     required: true
   },
   pageNumber: {
@@ -25,5 +25,11 @@ const activitySchema = new mongoose.Schema({
 // Auto-indexes designed physically to drastically improve array lookups natively internally for a generic user's timeline history
 activitySchema.index({ user: 1, lastReadAt: -1 });
 activitySchema.index({ user: 1, bookId: 1 });
+
+// Returns true if the activity was recorded recently (within 24 hours)
+activitySchema.methods.isRecentActivity = function () {
+  const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+  return this.lastReadAt > oneDayAgo;
+};
 
 module.exports = mongoose.model('Activity', activitySchema);
