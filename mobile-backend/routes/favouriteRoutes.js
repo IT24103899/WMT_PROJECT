@@ -8,7 +8,7 @@ router.route('/')
   .post(protect, addFavourite)
   .get(protect, getFavourites);
 
-router.route('/:bookId')
+router.route('/:bookId') // create the route between bookshelf and book id
   .delete(protect, removeFavourite);
 
 module.exports = router;
