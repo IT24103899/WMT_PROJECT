@@ -18,7 +18,7 @@ exports.getSearchHistory = async (req, res) => {
 exports.saveSearchHistory = async (req, res) => {
   try {
     const { query } = req.body;
-    if (!query || query.trim() === '') return res.status(400).json({ message: 'Search term required' });
+    if (!query || query.trim() === '') return res.status(400).json({ message: 'Search input cannot be empty.' });
 
     // Ensure no excessive duplicates by just returning if it's identical
     const last = await SearchHistory.findOne({ userId: req.user._id }).sort('-createdAt');
